@@ -129,7 +129,7 @@ input{
     
     <button type="submit" class="submit-btn">Create</button>
   </form>
-      <form action="#" id="joinroom">
+      <form action="joinroom.php" method="POST" id="joinroom">
         
     <div class="form-group"> 
      <!--  <label for="email">Email</label> -->
