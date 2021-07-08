@@ -46,12 +46,40 @@
 #joinroom{
     left:50px;
 }
-#footer {
-   position:fixed;
-   left:0px;
-   bottom:0px;
-   height:30px;
-   width:100%;
-   
-   
+.navbar-toggle{
+    background:#ff73ab;
 }
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 50px;
+  /*margin-left: 5px;*/
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-top: 3px solid #ff73ab;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.card1 {
+  box-shadow: 3px 2px 3px 2px rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+  /*margin-left: 5px;*/
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-left: 2px solid grey;
+ 
+}
+
+.card1:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+

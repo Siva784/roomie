@@ -22,13 +22,15 @@ if($conn)
 		}
 		if($seccode==$seccode1)
 		{
-			echo "valid user";
+			//echo "valid user";
 			$query1="INSERT INTO `users`(`email`, `roomid`, `seccode`) VALUES ('$email','$roomid','$seccode')";
 			$result1=mysqli_query($conn, $query1);
 			if($result1)
 			{
 				$_SESSION['user']=$email;
-				header("location:splitamount.php");
+				echo "<script>alert('successfully joined .please login')</script>";
+				echo "<script>location.href='login.php'</script>";
+				
 			}
 			else
 			{

@@ -76,9 +76,9 @@ include('nav.php');
   </div>
 
 </section>
-<footer class="container-fluid text-center">
-  <p>Designed my Mounika</p>
-</footer>
+<?php
+include('footer.php');
+?>
 <script>
         var x=document.getElementById("createroom");
         var y=document.getElementById("joinroom");

@@ -12,12 +12,14 @@ if(isset($_POST['submit']))
     if($count==1)
     {
       $row1 = mysqli_fetch_row($result2);
-      $_SESSION['user']=$email;
+      $_SESSION['id']=$row1[0];
+      $_SESSION['user']=$row1[1];
       $_SESSION['roomid']=$row1[2];
       echo "<script>location.href='splitamount.php'</script>";
     }
     else{
-      echo "<script>alert('hello')</script>";
+      echo "<script>alert('not valid')</script>";
+      echo "<script>location.href='login.php'</script>";
     }
 }
 
@@ -35,11 +37,12 @@ include('nav.php');
 <section>
   <div class="container-fluid text-center">    
   <div class="row content" id="tab1">
-    <div class="col-sm-5" >
+    <div class="col-sm-4" >
 
     </div>
-    <div class="col-sm-2">
-          <h2>Login</h2>
+    <div class="col-sm-4">
+      <div class="card">
+          <h2 style="color:#ff73ab;font-size: 20px">LOGIN</h2>
   <form action="#" method="POST" >
     <div class="form-group">
       <!-- <label for="email">Email</label> -->
@@ -56,14 +59,17 @@ include('nav.php');
     
     <button type="submit" class="submit-btn" name="submit">Login</button>
   </form>
-   
+   </div> 
     </div>
-    <div class="col-sm-5" >
+    <div class="col-sm-4" >
     </div>
    
     </div>
   </div>
 
 </section>
+<?php
+include('footer.php');
+?>
 </body>
 </html>

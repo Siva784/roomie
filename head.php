@@ -30,6 +30,11 @@
       background-color: #555;
       color: white;
       padding: 15px;
+      position:fixed;
+   left:0px;
+   bottom:0px;
+   height:50px;
+   width:100%
     }
     
     
