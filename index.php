@@ -5,25 +5,19 @@
 include('head.php');
 session_start();
 ?>
-<body>
+<body >
 <?php
 include('nav.php');
 ?>
+<header>
+  <!-- <div class="title">
+    <h1>Cheese Curds</h1>
+    <p>Scroll for more!</p>
+  </div> -->
 
-<section>
-<div class="container-fluid ">    
-  <div class="row content">
-    
-    <div class="col-sm-12" > 
-      <img src="backmain.png" class="img-responsive" >
-      
-    </div>
-    
-  </div>
-</div>
-</section>
-<section>
-  <div class="container-fluid text-center">    
+
+
+  <div class="container-fluid text-center title">    
   <div class="row content" id="tab1">
     <div class="col-sm-4" >
 
@@ -34,8 +28,13 @@ include('nav.php');
           <button type="button" class="toggle-btn" onclick="createroom()" style="font-size:18px">Create room</button>
           <button type="button"  class="toggle-btn" onclick="joinroom()" style="font-size:18px">join room</button>
     </div> 
-      
-  <form action="createroom.php" method="POST" id="createroom">
+      <div class="card" id="createroom">
+        <h2 style="color:black">CREATE ROOM</h2>
+  <form action="createroom.php" method="POST" >
+    <div class="form-group">
+      <!-- <label for="email">Email</label> -->
+      <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
+    </div>
     <div class="form-group">
       <!-- <label for="email">Email</label> -->
       <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
@@ -48,12 +47,28 @@ include('nav.php');
       <!-- <label >Security Code</label> -->
       <input type="text" class="form-control" id="seccode" placeholder="Enter Security Code" name="seccode">
     </div>
+    <div class="form-group">
+      <!-- <label >Security Code</label> -->
+      <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+    </div>
     
     <button type="submit" class="submit-btn">Create</button>
   </form>
-      <form action="joinroom.php" method="POST" id="joinroom">
+</div>
+<div class="card" id="joinroom">
+  <h2 style="color:black">JOIN ROOM</h2>
+      <form action="joinroom.php" method="POST" >
         
     <div class="form-group"> 
+      <div class="form-group">
+      <!-- <label for="email">Email</label> -->
+      <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
+    </div>
+    <div class="form-group">
+      <!-- <label >Security Code</label> -->
+      <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+    </div>
+    
      <!--  <label for="email">Email</label> -->
       <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
     </div>
@@ -75,7 +90,7 @@ include('nav.php');
     </div>
   </div>
 
-</section>
+</header>
 <?php
 include('footer.php');
 ?>

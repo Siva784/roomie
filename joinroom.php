@@ -1,6 +1,8 @@
 <?php
 include('connection.php');
 session_start();
+$username=$_POST['username'];
+$password=$_POST['password'];
 $email=$_POST['email'];
 $roomid=$_POST['roomid'];
 $seccode=$_POST['seccode'];
@@ -23,7 +25,7 @@ if($conn)
 		if($seccode==$seccode1)
 		{
 			//echo "valid user";
-			$query1="INSERT INTO `users`(`email`, `roomid`, `seccode`) VALUES ('$email','$roomid','$seccode')";
+			$query1="INSERT INTO `users`(`email`, `roomid`, `seccode`,`username`,`password`) VALUES ('$email','$roomid','$seccode','$username','$password')";
 			$result1=mysqli_query($conn, $query1);
 			if($result1)
 			{
@@ -41,7 +43,7 @@ if($conn)
 		}
 		else
 		{
-			echo "<script>alert('Invalid Code')</script>";
+			echo "<script>alert('Invalid Code or roomid')</script>";
 			echo "<script>location.href='index.php#tab1'</script>";
 		}
     }

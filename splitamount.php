@@ -29,7 +29,7 @@ else{
     $id=$_SESSION['id'];
     $roomid=$_SESSION['roomid'];
     $user=$_SESSION['user'];
-    $query="SELECT `id`, `email` FROM `users` where roomid='$roomid' order by `id`";
+    $query="SELECT `id`, `email`,`username` FROM `users` where roomid='$roomid' order by `id`";
     $result=mysqli_query($conn,$query);
     $count=mysqli_num_rows($result);
     
@@ -96,6 +96,9 @@ else{
   
     
     <div class="form-group card">
+      <?php  
+if($count>1){
+  ?>
           <label >split strategy</label><br>
           <label class="radio-inline">
           <input type="radio" name="optradio" id="optradio1" value="equal" onchange="splitamount()">Equally
@@ -127,13 +130,15 @@ else{
   <form action="" method="POST">
     <?php
     while($row=mysqli_fetch_row($result)){
+      if($row[1]!=$user){
       ?>
     <div class="form-group">
 
-      <label ><?php echo $row[1] ?></label>
+      <label ><?php echo $row[2] ?></label>
       <input type="number" class="form-control"  placeholder="Enter Amount"  value="0"  name="<?php echo $row[0] ?>">
     </div>
     <?php
+  }
     }
     ?>
     <div class="form-group">
@@ -141,19 +146,18 @@ else{
               <input type="text" class="form-control"  id='reason'  name="reason" required>
             </div>
     <button type="submit" class="submit-btn" name="adddiff">Add</button>
+    <input type="number" class="form-control" style="display:none" id="count"  value="<?php echo $count?>" name="count">
   </form>
   </div>
+  <?php
+
+}
+else{
+  echo "No members in your room to split amount .<br>share the roomid and security code to join others";
+}
+  ?>
     </div>
     
-
-  
-
-
-  
-
-
-
-     <input type="number" class="form-control" style="display:none" id="count"  value="<?php echo $count?>" name="count">
     
   
    

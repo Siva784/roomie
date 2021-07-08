@@ -28,7 +28,7 @@ else{
     $id=$_SESSION['id'];
     $roomid=$_SESSION['roomid'];
     $user=$_SESSION['user'];
-    $query="SELECT `id`, `email` FROM `users` where roomid='$roomid' and email!='$user' order by `id`";
+    $query="SELECT `id`, `email`,`username` FROM `users` where roomid='$roomid' and email!='$user' order by `id`";
     $result=mysqli_query($conn,$query);
     $count=mysqli_num_rows($result);
     ?>
@@ -40,15 +40,17 @@ else{
     <div class="card text-center">
       <h3>Room Mates</h3>
           <?php 
+            if($count>0)
+            {
             while($row=mysqli_fetch_row($result)){
             ?>
             <div class="card1">
               <?php 
-                echo "<h4>$row[1]</h4>";
+                echo "<h4>$row[2]</h4>";
               ?>
               <form action="transactionspec.php" method="POST">
                 <input type="number" style="display:none" value="<?php echo $row[0]?>" name="spec">
-                <input type="text" style="display:none" value="<?php echo $row[1]?>" name="specname">
+                <input type="text" style="display:none" value="<?php echo $row[2]?>" name="specname">
                 <button class="submit-btn" type="submit" name="view">View</button>
               </form>
 
@@ -56,7 +58,10 @@ else{
             </div>
             <?php
 
-
+            }
+            }
+            else{
+              echo "No members in your room .<br>share the roomid and security code to join others";
             }
           ?>
           

@@ -13,6 +13,7 @@
       margin-bottom: 0;
       border-radius: 0;
       border-color: white;
+      
     }
     
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
@@ -31,10 +32,10 @@
       color: white;
       padding: 15px;
       position:fixed;
-   left:0px;
-   bottom:0px;
-   height:50px;
-   width:100%
+     left:0px;
+     bottom:0px;
+     height:50px;
+     width:100%
     }
     
     

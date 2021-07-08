@@ -4,8 +4,8 @@ session_start();
 if(isset($_POST['submit']))
 {
   $email=$_POST['email'];
-  $seccode=$_POST['seccode'];
-  $checkquery="SELECT * FROM `users` WHERE seccode='$seccode' and email='$email'";
+  $password=$_POST['password'];
+  $checkquery="SELECT * FROM `users` WHERE password='$password' and email='$email'";
   $result2=mysqli_query($conn, $checkquery);
     
     $count = mysqli_num_rows($result2);
@@ -15,7 +15,8 @@ if(isset($_POST['submit']))
       $_SESSION['id']=$row1[0];
       $_SESSION['user']=$row1[1];
       $_SESSION['roomid']=$row1[2];
-      echo "<script>location.href='splitamount.php'</script>";
+      $_SESSION['username']=$row1[5];
+      echo "<script>location.href='transaction.php'</script>";
     }
     else{
       echo "<script>alert('not valid')</script>";
@@ -54,7 +55,7 @@ include('nav.php');
     </div> -->
     <div class="form-group">
       <!-- <label >Security Code</label> -->
-      <input type="text" class="form-control" id="seccode" placeholder="Enter Security Code" name="seccode">
+      <input type="text" class="form-control" id="password" placeholder="Enter password" name="password">
     </div>
     
     <button type="submit" class="submit-btn" name="submit">Login</button>

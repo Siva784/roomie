@@ -14,7 +14,7 @@
         <?php
         if(!isset($_SESSION['user'])){
         ?>
-        <!-- <li><a href="index.php" style="color:black;font-size: 20px">Home</a></li> -->
+        <li><a href="index.php" style="color:black;font-size: 20px">Home</a></li>
         <!-- <li><a href="index.php#tab1" style="color:black;font-size: 20px">Create/Join</a></li> -->
         <?php 
       }
